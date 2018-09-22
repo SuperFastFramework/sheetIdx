@@ -16,6 +16,7 @@ function love.load(arg)
 	sfx0 = love.audio.newSource("assets/sfx0.ogg")
 	sfx1 = love.audio.newSource("assets/sfx1.ogg")
 	idx = 1
+	totalCols = CONF.width / 8
 
 	sfx1:play()
 end
@@ -32,7 +33,7 @@ function love.update(dt)
 	local x, y = love.mouse.getPosition()
 	c = math.floor(x / (8*CONF.cameraZoom))
 	r = math.floor(y / (8*CONF.cameraZoom))
-	idx = ((8*r)+c)+1
+	idx = ((totalCols*r)+c)+1
 end
 
 function love.draw(dt)
